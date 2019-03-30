@@ -3,6 +3,8 @@ Check lang files at compile time. Designed to work with plugins based on NyaaUti
 
 [![Build Status](https://travis-ci.org/Librazy/NyaaUtilsLangChecker.svg?branch=master)](https://travis-ci.org/Librazy/NyaaUtilsLangChecker)
 
+[Jenkins](https://ci.nyaacat.com/job/NyaaUtilsLangChecker/)
+
 # Usage
 Modify your build.gradle like below.
 
