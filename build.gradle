@@ -7,7 +7,6 @@ sourceCompatibility = 1.8
 
 repositories {
     jcenter()
-    mavenCentral()
 
     maven {
         name 'Spigot'
@@ -25,7 +24,7 @@ dependencies {
         def gradleJavaRuntimeDir = new File(System.properties["java.home"].toString())
         compile files("${gradleJavaRuntimeDir}/../lib/tools.jar") // JDK
     }
-    compileOnly 'org.spigotmc:spigot-api:1.13.1-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
 }
 
 publishing {
@@ -39,7 +38,7 @@ publishing {
     }
     repositories {
         maven {
-            url "$buildDir/repo"
+            url "${project.rootDir}/pub/"
         }
     }
 }
