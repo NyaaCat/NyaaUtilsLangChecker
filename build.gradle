@@ -7,16 +7,8 @@ sourceCompatibility = 1.8
 
 repositories {
     jcenter()
-
-    maven {
-        name 'Spigot'
-        url 'https://hub.spigotmc.org/nexus/content/groups/public/'
-    }
-
-    maven {
-        name 'sonatype-snapshots'
-        url 'https://oss.sonatype.org/content/repositories/snapshots'
-    }
+    maven {name 'Spigot';url 'https://hub.spigotmc.org/nexus/content/groups/public/'}
+    maven {name 'sonatype-snapshots';url 'https://oss.sonatype.org/content/repositories/snapshots'}
 }
 
 dependencies {
@@ -24,9 +16,10 @@ dependencies {
         def gradleJavaRuntimeDir = new File(System.properties["java.home"].toString())
         compile files("${gradleJavaRuntimeDir}/../lib/tools.jar") // JDK
     }
-    compileOnly 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.14-R0.1-SNAPSHOT'
 }
 
+ext.mavenDirectory = System.env.MAVEN_DIR == null ? "$projectDir/pub/" : "$System.env.MAVEN_DIR"
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -38,7 +31,7 @@ publishing {
     }
     repositories {
         maven {
-            url "${project.rootDir}/pub/"
+            url "${mavenDirectory}"
         }
     }
 }
